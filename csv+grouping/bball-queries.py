@@ -1,0 +1,31 @@
+import sqlite3
+import pandas as pd
+
+#data context: 
+#batting table:
+#each record is a player in a specific season (multiple seasons = multiple entries)
+#any trades mid-year will also be an other entry, including being traded back to the same team
+#unique entries: a player, in a specific season, with a specific team, for an uninterrupted period of time (each stint?)
+
+
+conn = sqlite3.connect('baseball.db')
+cursor = conn.cursor()
+query = '''
+    SELECT teamID,SUM(HR) as seasonHRs
+    FROM batting
+    WHERE yearID = 2025
+    GROUP BY teamID
+    ORDER BY seasonHRs DESC;
+'''
+cursor.execute(query)
+records = cursor.fetchall()
+conn.close()
+
+#changing which results you want will require chanign the dataframe columns
+recordsDF = pd.DataFrame(records,columns=['teamID','yearlyHR'])
+print(recordsDF)
+
+
+#pull specific colunms w/ SELECT ___ FROM table
+#pull specific rows w/ WHERE ___
+#chaining WHERE conditions: WHERE HR > 20 AND yearID = 1967 OR yearID = 1976
