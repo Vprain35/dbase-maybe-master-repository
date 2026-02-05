@@ -7,7 +7,7 @@ import gradio as gr
 #selecting a player (input) will display their number of home runs (output)
 
 def fetch_phillies():
-    conn = sqlite3.connect('baseball.db')
+    conn = sqlite3.connect('../baseball.db')
     cursor = conn.cursor()
     query = '''
         SELECT playerID,HR

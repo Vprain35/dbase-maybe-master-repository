@@ -8,21 +8,22 @@ import pandas as pd
 #unique entries: a player, in a specific season, with a specific team, for an uninterrupted period of time (each stint?)
 
 
-conn = sqlite3.connect('baseball.db')
+conn = sqlite3.connect('../baseball.db')
 cursor = conn.cursor()
 query = '''
-    SELECT teamID,SUM(HR) as seasonHRs
-    FROM batting
-    WHERE yearID = 2025
-    GROUP BY teamID
-    ORDER BY seasonHRs DESC;
+    SELECT playerID,count(*)
+    FROM batting 
+    WHERE yearID = 1976
+    GROUP BY playerID
+    HAVING count(*) = 2
+    ORDER BY count(*) DESC;
 '''
 cursor.execute(query)
 records = cursor.fetchall()
 conn.close()
 
 #changing which results you want will require chanign the dataframe columns
-recordsDF = pd.DataFrame(records,columns=['teamID','yearlyHR'])
+recordsDF = pd.DataFrame(records)#,columns=['teamID','yearlyHR'])
 print(recordsDF)
 
 
