@@ -9,7 +9,7 @@ import pandas as pd
 
 conn = sqlite3.connect('baseball.db')
 #cursor = conn.cursor
-dfData = pd.read_csv('teams.csv')
-dfData.to_sql('teams',conn, if_exists='replace', index=False)
+dfData = pd.read_csv('people.csv')
+dfData.to_sql('people',conn, if_exists='replace', index=False)
 conn.commit()
 conn.close()
