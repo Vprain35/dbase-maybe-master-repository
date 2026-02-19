@@ -25,7 +25,7 @@ def fetch_phillies():
     #    players.append(record[0])
     #return players
 
-    #look im kinda off in my own world here,
+    #I do this slightly differently than he does in the class - it gets player name AND the home run count at the same time, instead of one after the other
     global playersLi
     global HRsLi
     playersLi = []

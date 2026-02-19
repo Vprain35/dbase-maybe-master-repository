@@ -15,15 +15,27 @@ with gr.Blocks() as iface:
     with gr.Row():
         gr.Label("test divide")
 
+
     with gr.Row():
         with gr.Column():
-            first_addor = gr.Number(label="Type a number:")
-            second_addor = gr.Number(label="Type another number:")
+            xBox = gr.Number(label="Type a number:")
+            yBox = gr.Number(label="Type another number:")
         with gr.Column():
             addition_output = gr.Number(label="sum of the two numbers:")
 
-    first_addor.change(fn=add, inputs=[first_addor,second_addor],outputs=[addition_output])
-    second_addor.change(fn=add, inputs=[first_addor,second_addor],outputs=[addition_output])
+    xBox.change(fn=add, inputs=[xBox,yBox],outputs=[addition_output])
+    yBox.change(fn=add, inputs=[xBox,yBox],outputs=[addition_output])
+
+    #xbox and ybox on the same row
+    with gr.Row():
+        with gr.Column():
+            xBox2 = gr.Number(label="Type a number:")
+            addition_output2 = gr.Number(label="sum of the two numbers:")
+        with gr.Column():
+            yBox2 = gr.Number(label="Type another number:")
+
+    xBox2.change(fn=add, inputs=[xBox2,yBox2],outputs=[addition_output2])
+    yBox2.change(fn=add, inputs=[xBox2,yBox2],outputs=[addition_output2])
     
 
 iface.launch()
