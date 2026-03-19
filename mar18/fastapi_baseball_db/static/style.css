@@ -1,0 +1,64 @@
+/* Baseball-themed styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+h1 {
+    color: #d32f2f;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+select {
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #d32f2f;
+    background: #fff;
+    color: #333;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #1976d2;
+}
+
+.info-box {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-size: 1.1em;
+    color: #333;
+    text-align: left;
+}
+
+/* Each team item */
+.team-item {
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #ffefc2;
+    color: #333;
+    font-weight: bold;
+}
