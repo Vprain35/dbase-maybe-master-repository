@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .container {
@@ -16,8 +16,8 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    max-width: 400px;
-    width: 90%;
+    max-width: 900px;
+    width: 95%;
 }
 
 h1 {
@@ -53,12 +53,54 @@ select:hover {
     text-align: left;
 }
 
-/* Each team item */
-.team-item {
+/* Each team or player item */
+.team-item, .player-item {
     margin: 5px 0;
     padding: 5px 10px;
     border-radius: 5px;
     background: #ffefc2;
     color: #333;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.team-item:hover, .player-item:hover {
+    background: #ffd966;
+}
+
+/* Player info cards */
+.player-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.player-card {
+    flex: 1 1 300px;
+    background: #f0f8ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Batting table styling */
+.player-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.player-card th, .player-card td {
+    border: 1px solid #999;
+    padding: 4px 8px;
+    font-size: 0.9em;
+}
+
+.player-card th {
+    background-color: #90e0ff;
+    position: sticky;
+    top: 0;
 }

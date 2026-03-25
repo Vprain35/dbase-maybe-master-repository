@@ -1,5 +1,5 @@
 from typing import Optional
-from sqlmodel import SQLModel, Field, Relationship, create_engine
+from sqlmodel import SQLModel, Field, Relationship, create_engine, Column, Integer, String
 
 engine = create_engine("sqlite:///Baseball.db", echo=True)
 
@@ -107,8 +107,8 @@ class Batting(SQLModel, table=True):
     AB: Optional[int] = None
     R: Optional[int] = None
     H: Optional[int] = None
-    twoB: Optional[int] = Field(default=None, alias="2B")
-    threeB: Optional[int] = Field(default=None, alias="3B")
+    twoB: Optional[int] = Field(default=None, sa_column=Column("2B", Integer))
+    threeB: Optional[int] = Field(default=None, sa_column=Column("3B", Integer))
     HR: Optional[int] = None
     RBI: Optional[int] = None
     SB: Optional[int] = None
